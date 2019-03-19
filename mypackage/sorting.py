@@ -56,8 +56,6 @@ def partition(array, begin, end):
 
 
 def quick_sort(array, begin=0, end=None):
-    if end is None:
-        end = len(array) - 1
     def quick_sort_recursion(array, begin, end):
         if begin >= end:
             return
