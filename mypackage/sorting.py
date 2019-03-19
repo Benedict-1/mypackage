@@ -46,7 +46,7 @@ def merge_sort(array):
 
 def partition(array, begin, end):
     pivot_idx = begin
-    for i in xrange(begin+1, end+1):
+    for i in range(begin+1, end+1):
         if array[i] <= array[begin]:
             pivot_idx += 1
             array[i], array[pivot_idx] = array[pivot_idx], array[i]
