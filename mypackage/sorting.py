@@ -44,22 +44,21 @@ def merge_sort(array):
     return merge(left, right)
 
 
-def partition(xs, start, end):
-    follower = leader = start
-    while leader < end:
-        if xs[leader] <= xs[end]:
-            xs[follower], xs[leader] = xs[leader], xs[follower]
-            follower += 1
-        leader += 1
-    xs[follower], xs[end] = xs[end], xs[follower]
-    return follower
+def quick_sort(items):
 
-def _quicksort(xs, start, end):
-    if start >= end:
-        return
-    p = partition(xs, start, end)
-    _quicksort(xs, start, p-1)
-    _quicksort(xs, p+1, end)
+    if len(items) <= 1:
+        return items
 
-def quick_sort(xs):
-    _quicksort(xs, 0, len(xs)-1)
+    items = list(items)
+    pivot = items[-1]
+    new_list = [pivot]
+    count = 0
+
+    for i in range(len(items)-1):
+        if items[i]<pivot:
+            new_list = [items[i]]+ new_list
+            count+=1
+        else:
+            new_list = new_list + [items[i]]
+
+    return quick_sort(new_list[:count])+[pivot]+quick_sort(new_list[count+1:])
