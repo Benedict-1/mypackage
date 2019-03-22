@@ -45,4 +45,4 @@ def merge_sort(array):
 
 
 def quick_sort(array):
-    return array.sort()
+    return np.sort(array)
